@@ -7,12 +7,19 @@
 //
 
 import UIKit
+import Alamofire
+import CoreData
 
 class ViewController: UIViewController {
+    
+    var shows = [TVShow]()
+    //instantiate empty array of tv shows
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
