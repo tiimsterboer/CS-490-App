@@ -19,7 +19,21 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        
+        let url = URL(string: "https://api.tvmaze.com/shows?page=1")
+            Alamofire.request(url!).responseJSON { (response) in
+            
+            let result = response.data
+            
+                do {
+                    self.shows = try JSONDecoder().decode([TVShow].self, from: result!)
+                    for show in self.shows {
+                        print(String(show.id),":",show.name,":",show.type,":",show.language,":",show.summary)
+                    }
+                }catch {
+                    print("error")
+                }
+            
+        }
     }
 
     override func didReceiveMemoryWarning() {
